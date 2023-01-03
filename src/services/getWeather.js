@@ -18,7 +18,17 @@ async function getWeather (cityName = 'Santiago') {
 
   const { location, current } = data
   const { name, region, country, localtime } = location
-  const { temp_c, is_day, condition, feelslike_c, wind_kph, wind_dir, humidity, precip_mm } = current
+  const {
+    temp_c,
+    is_day,
+    condition,
+    feelslike_c,
+    wind_kph,
+    wind_dir,
+    humidity,
+    precip_mm,
+    uv
+  } = current
   const { text, icon } = condition
 
   // const { forecastday } = forecast
@@ -41,6 +51,7 @@ async function getWeather (cityName = 'Santiago') {
     humidity,
     precipMM: precip_mm,
     conditionText: text,
+    uv,
     icon
   }
 }
