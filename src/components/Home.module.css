@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 98%;
+    margin: auto;
+}
+
+.title {
+    color: transparent;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 700 bold;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    /* background-image: linear-gradient(180deg, #ffe993, #eb831c); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding: 1.25rem;
+}
+
+.container {
+    width: 98%;
+    margin: 5rem auto 0;
+}
+
+footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+  }
+  
+  footer p {
+    color: #ccc;
+  }

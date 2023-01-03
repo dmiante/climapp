@@ -1,0 +1,35 @@
+.currentDay {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem;
+}
+.icon { 
+    width: 6rem;
+    height: auto;
+    margin: 0;
+}
+.temperature {
+    font-weight: 700 bold;
+    font-size: 6em;
+}
+.condition {
+    font-weight: 700 bold;
+    font-size: 1.7em;
+}
+.location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.5em;
+}
+.iconLocation {
+    width: 1em;
+    height: 1em;
+}
+.city {
+    font-weight: 400;
+    margin-left: 0.3em;
+}
+.localtime {
+    margin-bottom: 2em;
+}
