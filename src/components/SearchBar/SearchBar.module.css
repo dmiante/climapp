@@ -45,13 +45,13 @@ input:focus {
 }
 
 .inputCity:focus + label {
-  width: 40%;
+  width: 70%;
 }
 
-.inputCity:focus,
+/* .inputCity:focus,
 .inputCity:valid {
   padding-top: 35px;
-}
+} */
 
 .inputCity:focus + label > span,
 .inputCity:valid + label > span {

@@ -38,20 +38,22 @@ export default function CurrentDay ({ weather }) {
         <h1 className={styles.temperature}>{`${weather.tempNow}°`}</h1>
         <h2 className={styles.condition}>{weather.conditionText}</h2>
       </section>
-      <section>
-        <img src={Thermometer} alt='location' className={styles.iconThermometer} />
-        <h4>Feels Like</h4>
-        <h2>{`${weather.feelsLike}°`}</h2>
-        <img src={Humidity} alt='location' className={styles.iconHumidity} />
-        <h4>Humidity</h4>
-        <h2>{`${weather.humidity} %`}</h2>
-        <img src={Wind} alt='location' className={styles.iconWind} />
-        <h4>Wind Speed & Direction</h4>
-        <h2>{`${weather.windKph} km/h - ${weather.windDir}`}</h2>
-        {/* <h4>Precipitation</h4>
-        <h2>{`${weather.precipMM} mm`}</h2>
-        <h4>UV Index</h4>
-        <h2>{weather.uv}</h2> */}
+      <section className={styles.detailDay}>
+        <div className={styles.thermometer}>
+          <img src={Thermometer} alt='location' className={styles.iconDetail} />
+          <h4>Feels Like</h4>
+          <h2>{`${weather.feelsLike}°`}</h2>
+        </div>
+        <div>
+          <img src={Humidity} alt='location' className={styles.iconDetail} />
+          <h4>Humidity</h4>
+          <h2>{`${weather.humidity} %`}</h2>
+        </div>
+        <div>
+          <img src={Wind} alt='location' className={styles.iconDetail} />
+          <h4>Wind Speed & Direction</h4>
+          <h2>{`${weather.windKph} km/h - ${weather.windDir}`}</h2>
+        </div>
       </section>
     </div>
   )
