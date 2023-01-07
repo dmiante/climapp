@@ -6,6 +6,7 @@ import styles from './Home.module.css'
 
 export default function Home () {
   const [weather, setWeather] = useState([])
+  // const { weather, loading } = useFetchWeather()
 
   useEffect(() => {
     getWeather()
@@ -17,7 +18,7 @@ export default function Home () {
   function SearchNewCity (cityName) {
     getWeather(cityName)
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setWeather(data)
       })
   }
