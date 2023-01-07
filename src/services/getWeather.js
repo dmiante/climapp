@@ -13,8 +13,6 @@ const options = {
 async function getWeather (cityName = 'Santiago') {
   const response = await fetch(`${API_URL}?q=${cityName}`, options)
   const data = await response.json()
-  // console.log(cityName)
-  // console.log(data)
 
   const { location, current } = data
   const { name, region, country, localtime } = location
@@ -29,7 +27,7 @@ async function getWeather (cityName = 'Santiago') {
     precip_mm,
     uv
   } = current
-  const { text, icon } = condition
+  const { text, code } = condition
 
   // const { forecastday } = forecast
   // const [
@@ -52,7 +50,7 @@ async function getWeather (cityName = 'Santiago') {
     precipMM: precip_mm,
     conditionText: text,
     uv,
-    icon
+    code
   }
 }
 export default getWeather
