@@ -9,7 +9,7 @@ import Thermometer from '../../assets/thermometer.png'
 import Wind from '../../assets/wind.png'
 
 export default function CurrentDay ({ weather }) {
-  const localtime = weather.localtime
+  const localtime = weather?.localtime
   const time = localtime?.slice(-5)
   const year = localtime?.slice(0, 4)
   const month = localtime?.slice(5, 7)
@@ -26,28 +26,28 @@ export default function CurrentDay ({ weather }) {
       <section>
         <div className={styles.location}>
           <img src={Location} alt='location' className={styles.iconLocation} />
-          <h3 className={styles.city}>{`${weather.name}, ${weather.country}`}</h3>
+          <h3 className={styles.city}>{`${weather?.name}, ${weather?.country}`}</h3>
         </div>
         <h3 className={styles.localtime}>{`${time} - ${date}`}</h3>
         <img className={styles.icon} src={icon} />
-        <h1 className={styles.temperature}>{`${weather.tempNow}°`}</h1>
-        <h2 className={styles.condition}>{weather.conditionText}</h2>
+        <h1 className={styles.temperature}>{`${weather?.tempNow}°`}</h1>
+        <h2 className={styles.condition}>{weather?.conditionText}</h2>
       </section>
       <section className={styles.detailDay}>
         <div className={styles.thermometer}>
           <img src={Thermometer} alt='location' className={styles.iconDetail} />
           <h4>Feels Like</h4>
-          <h2>{`${weather.feelsLike}°`}</h2>
+          <h2>{`${weather?.feelsLike}°`}</h2>
         </div>
         <div>
           <img src={Humidity} alt='location' className={styles.iconDetail} />
           <h4>Humidity</h4>
-          <h2>{`${weather.humidity} %`}</h2>
+          <h2>{`${weather?.humidity} %`}</h2>
         </div>
         <div>
           <img src={Wind} alt='location' className={styles.iconDetail} />
           <h4>Wind Speed & Direction</h4>
-          <h2>{`${weather.windKph} km/h - ${weather.windDir}`}</h2>
+          <h2>{`${weather?.windKph} km/h - ${weather?.windDir}`}</h2>
         </div>
       </section>
     </div>
