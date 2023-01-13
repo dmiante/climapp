@@ -15,11 +15,18 @@ export default function CurrentDay ({ weather }) {
   const month = localtime?.slice(5, 7)
   const day = localtime?.slice(8, 10)
   const date = ` ${day} ${MONTHS[month]} ${year}`
-  // FALTA PONER LOS CODIGOS DE FOG DIA Y NOCHE
+
   const fileName = WEATHER_CODES[weather?.code]?.[
-    ((weather?.code === 1000 || weather?.code === 1030) && weather?.isDay) === 0 ? 1 : 0
+    ((
+      weather?.code === 1000 ||
+      weather?.code === 1030 ||
+      weather?.code === 1135 ||
+      weather?.code === 1147
+    ) && weather?.isDay) === 0
+      ? 1
+      : 0
   ]
-  const { icon } = useImage(fileName)
+  const { image } = useImage(fileName)
 
   return (
     <div className={styles.currentDay}>
@@ -29,12 +36,14 @@ export default function CurrentDay ({ weather }) {
           <h3 className={styles.city}>{`${weather?.name}, ${weather?.country}`}</h3>
         </div>
         <h3 className={styles.localtime}>{`${time} - ${date}`}</h3>
-        <img className={styles.icon} src={icon} />
-        <h1 className={styles.temperature}>{`${weather?.tempNow}°`}</h1>
-        <h2 className={styles.condition}>{weather?.conditionText}</h2>
+        <div className={styles.mainInfoTemp}>
+          <img className={styles.icon} src={image} />
+          <h1 className={styles.temperature}>{`${weather?.tempNow}°C`}</h1>
+          <h2 className={styles.condition}>{weather?.conditionText}</h2>
+        </div>
       </section>
       <section className={styles.detailDay}>
-        <div className={styles.thermometer}>
+        <div>
           <img src={Thermometer} alt='location' className={styles.iconDetail} />
           <h4>Feels Like</h4>
           <h2>{`${weather?.feelsLike}°`}</h2>

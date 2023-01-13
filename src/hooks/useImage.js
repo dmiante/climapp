@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react'
 export function useImage (fileName) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null) // Handles the undefined filename when starts the app
-  const [icon, setIcon] = useState(null)
+  const [image, setImage] = useState(null)
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await import(`../assets/ConditionIcons/${fileName}.png`)
-        setIcon(response.default)
+        const response = await import(`../assets/${fileName}.png`)
+        // console.log(fileName)
+        setImage(response.default)
       } catch (err) {
         setError(err)
       } finally {
@@ -20,7 +21,7 @@ export function useImage (fileName) {
   }, [fileName])
 
   return {
-    icon,
+    image,
     loading,
     error
   }

@@ -1,23 +1,14 @@
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
 .currentDay {
     display: flex;
     justify-content: space-between;
-    margin: 3rem 3rem 0;
-}
-.icon { 
-    width: 6rem;
-    height: auto;
-    margin: 0;
-}
-.temperature {
-    font-weight: 700 bold;
-    font-size: 6em;
-}
-.condition {
-    font-weight: 700 bold;
-    font-size: 1.7em;
+    margin: 6rem 3rem 3rem;
 }
 .location {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     font-size: 1.5em;
@@ -28,10 +19,33 @@
 }
 .city {
     font-weight: 400;
-    margin-left: 0.3em;
 }
+
 .localtime {
     margin-bottom: 2em;
+    text-align: center;
+}
+
+.mainInfoTemp {
+    display: block;
+    text-align: center;
+    margin-top: 10rem;
+}
+.icon { 
+    width: 7em;
+    height: auto;
+    margin: 0;
+}
+.temperature {
+    font-weight: 700;
+    font-size: 6em;
+    /* text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); */
+    text-shadow: 3px 4px 7px rgba(255, 255, 255, 0.185);
+}
+
+.condition {
+    font-weight: 700;
+    font-size: 2em;
 }
 
 .detailDay div {
@@ -39,7 +53,9 @@
     grid-template-columns: 0.4fr 1fr;
     grid-template-rows: repeat(2, 1fr);
 }
-
+.detailDay > div {
+    margin-bottom: 3em;
+}
 .detailDay > div > img {
     display: flex;
     align-self: center;
@@ -56,6 +72,6 @@
 }
 .detailDay > div > h2 {
     font-size: 2em;
-    font-weight: 700 bold;
+    font-weight: 700;
     grid-area: 2 / 2 / 3 / 3;
 }

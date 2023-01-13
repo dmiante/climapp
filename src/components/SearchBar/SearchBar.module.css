@@ -68,7 +68,8 @@ input:focus {
   font-size: 48px;
   top: -66px;
   left: 0px;
-  z-index: -1;
+  z-index: 1;
+  cursor: text;
   -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
