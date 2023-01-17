@@ -16,9 +16,4 @@ body {
   font-family: 'PT Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(./assets/bgBlizzard.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  background-position: center center !important;
 }

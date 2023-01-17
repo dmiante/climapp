@@ -1,45 +1,32 @@
-/* .App {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background-color: rgba(0, 0, 0,0.2);
-  background: 
-   url(../assets/bgBlizzard.png);
+:root {
+  --background-overlay: rgba(0, 0, 0, 0.3)
+}
+
+.App {
+  /* background-image: url(./assets/bgBlizzard.png); */
   background-repeat: no-repeat;
   background-attachment: fixed !important;
   background-size: cover !important;
   background-position: center center !important;
-  color: #fff;
-  opacity: 0.6;
-} */
-  
-/* .App:before {
-  content: '';
-  background: url(../assets/bgBlizzard.png) no-repeat center center/cover;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-} */
+}
 
-/* .App {
-  background-image: url(../assets/sky.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgba(0, 0, 0,0.8);
-  height: 100vh;
-} */
-.App {
-  background: rgba(0, 0, 0, .2);
+/* .overlay {
+  background-color: rgba(0, 0, 0, .2);
   color: white;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+} */
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-overlay);
+  color: white;
 }
+
 header {
     display: flex;
     flex-direction: row-reverse;

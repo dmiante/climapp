@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export function useImage (fileName) {
+export default function useImage (fileName) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null) // Handles the undefined filename when starts the app
   const [image, setImage] = useState(null)

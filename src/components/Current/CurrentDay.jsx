@@ -1,5 +1,5 @@
 import { MONTHS, WEATHER_CODES } from '../Const.js'
-import { useImage } from '../../hooks/useImage.js'
+import useImage from '../../hooks/useImage.js'
 
 import styles from './CurrentDay.module.css'
 
@@ -38,7 +38,7 @@ export default function CurrentDay ({ weather }) {
         <h3 className={styles.localtime}>{`${time} - ${date}`}</h3>
         <div className={styles.mainInfoTemp}>
           <img className={styles.icon} src={image} />
-          <h1 className={styles.temperature}>{`${weather?.tempNow}°C`}</h1>
+          <h2 className={styles.temperature}>{`${weather?.tempNow}°C`}</h2>
           <h2 className={styles.condition}>{weather?.conditionText}</h2>
         </div>
       </section>
