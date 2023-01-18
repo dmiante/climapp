@@ -1,7 +1,8 @@
 /* eslint-disable camelcase */
-const API_URL = import.meta.env.VITE_WEATHER_API_URL
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
-const API_HOST = import.meta.env.VITE_WEATHER_API_HOST
+
+const API_URL = 'https://weatherapi-com.p.rapidapi.com/forecast.json'
+const API_HOST = 'weatherapi-com.p.rapidapi.com'
 
 const options = {
   method: 'GET',
