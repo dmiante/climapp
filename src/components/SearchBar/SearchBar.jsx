@@ -7,7 +7,6 @@ export default function SearchBar ({ onNewCity }) {
   function handleSubmit (e) {
     e.preventDefault()
     onNewCity(inputValue)
-    // console.log(inputValue)
     setInputValue('')
   }
 

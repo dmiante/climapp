@@ -3,23 +3,24 @@ import CurrentDay from './Current/CurrentDay'
 import Loading from './Loading/Loading'
 
 import useWeather from '../hooks/useWeather'
-import useImage from '../hooks/useImage'
+// import useImage from '../hooks/useImage'
 import getWeather from '../services/getWeather'
 import styles from './Home.module.css'
-import { WEATHER_CODES } from './Const'
+// import { WEATHER_CODES } from './Const'
+import background from '../assets/bgBlizzard.png'
 
 export default function Home () {
   const { weather, loading, setWeather, setLoading } = useWeather()
-  const fileName = WEATHER_CODES[weather?.code]?.[
-    ((
-      weather?.code === 1000 ||
-      weather?.code === 1030 ||
-      weather?.code === 1135 ||
-      weather?.code === 1147
-    ) && weather?.isDay) === 0
-      ? 1
-      : 0
-  ]
+  // const fileName = WEATHER_CODES[weather?.code]?.[
+  //   ((
+  //     weather?.code === 1000 ||
+  //     weather?.code === 1030 ||
+  //     weather?.code === 1135 ||
+  //     weather?.code === 1147
+  //   ) && weather?.isDay) === 0
+  //     ? 1
+  //     : 0
+  // ]
 
   function SearchNewCity (cityName) {
     setLoading(true)
@@ -30,12 +31,13 @@ export default function Home () {
       })
   }
 
-  const { image } = useImage(fileName)
-  const backgroundOne = image?.slice(0, 12) + 'bg' + image?.slice(12)
-  console.log(backgroundOne)
+  // const { image } = useImage(fileName)
+  // const backgroundOne = image?.slice(0, 12) + 'bg' + image?.slice(12)
+  // console.log(image)
+  // console.log(backgroundOne)
 
   const backgroundStyle = {
-    backgroundImage: `url(${backgroundOne})`
+    backgroundImage: `url(${background})`
   }
 
   return (

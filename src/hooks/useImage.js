@@ -9,7 +9,6 @@ export default function useImage (fileName) {
     const fetchImage = async () => {
       try {
         const response = await import(`../assets/${fileName}.png`)
-        // console.log(fileName)
         setImage(response.default)
       } catch (err) {
         setError(err)
