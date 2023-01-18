@@ -31,7 +31,8 @@ export default function Home () {
   }
 
   const { image } = useImage(fileName)
-  const backgroundOne = image?.slice(0, 12) + 'bg' + image?.slice(12)
+  const backgroundOne = image?.slice(0, 20) + 'bg' + image?.slice(20)
+  console.log(backgroundOne)
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundOne})`
