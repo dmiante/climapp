@@ -11,7 +11,11 @@ const options = {
   }
 }
 async function getWeather (cityName = 'Santiago') {
-  const response = await fetch(`${API_URL}?q=${cityName}`, options)
+  const url = `${API_URL}?q=${cityName}`
+  const defaultUrl = `${API_URL}?q=Santiago`
+  console.log(url)
+
+  const response = await fetch(cityName === null ? defaultUrl : url, options)
   const data = await response.json()
 
   const { location, current } = data
