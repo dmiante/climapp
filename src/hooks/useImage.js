@@ -4,13 +4,15 @@ export default function useImage (fileName) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null) // Handles the undefined filename when starts the app
   const [image, setImage] = useState(null)
+  const [bgImage, setBgImage] = useState(null)
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await import(`../assets/${fileName}.png`)
-        // console.log(fileName)
-        setImage(response.default)
+        const responseImage = await import(`../assets/${fileName}.png`)
+        const responseBg = await import(`../assets/bg${fileName}.png`)
+        setImage(responseImage.default)
+        setBgImage(responseBg.default)
       } catch (err) {
         setError(err)
       } finally {
@@ -22,6 +24,7 @@ export default function useImage (fileName) {
 
   return {
     image,
+    bgImage,
     loading,
     error
   }
