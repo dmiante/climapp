@@ -8,6 +8,12 @@
   background-attachment: fixed !important;
   background-size: cover !important;
   background-position: center center !important;
+  transition: background-image 1s;
+  -webkit-transition: background-image 1s;
+  -moz-transition: background-image 1s;
+  animation: fadeInOpacity 2s ease-in 1;
+  -webkit-animation: fadeInOpacity 2s ease-in 1;
+  -moz-animation: fadeInOpacity 2s ease-in 1;
 }
 
 /* .overlay {
@@ -63,3 +69,12 @@ footer {
   footer p {
     color: #ccc;
   }
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

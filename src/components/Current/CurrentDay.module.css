@@ -7,6 +7,10 @@ h2, h3, h4 {
     display: flex;
     justify-content: space-between;
     margin: 6rem 3rem 3rem;
+    opacity: 1;
+    animation: fadeInOpacity 2s ease-in 1;
+    -webkit-animation: fadeInOpacity 2s ease-in 1;
+    -moz-animation: fadeInOpacity 2s ease-in 1;
 }
 .location {
     display: inline-flex;
@@ -76,4 +80,13 @@ h2, h3, h4 {
     font-size: 2em;
     font-weight: 700;
     grid-area: 2 / 2 / 3 / 3;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

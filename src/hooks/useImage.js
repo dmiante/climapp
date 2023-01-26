@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export default function useImage (fileName) {
-  const [loading, setLoading] = useState(true)
+  const [loadingImage, setLoadingImage] = useState(false)
   const [error, setError] = useState(null) // Handles the undefined filename when starts the app
   const [image, setImage] = useState(null)
   const [bgImage, setBgImage] = useState(null)
@@ -16,7 +16,7 @@ export default function useImage (fileName) {
       } catch (err) {
         setError(err)
       } finally {
-        setLoading(false)
+        setLoadingImage(true)
       }
     }
     fetchImage()
@@ -25,7 +25,7 @@ export default function useImage (fileName) {
   return {
     image,
     bgImage,
-    loading,
+    loadingImage,
     error
   }
 }
