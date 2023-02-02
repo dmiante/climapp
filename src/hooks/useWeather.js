@@ -1,23 +1,25 @@
 import { useEffect, useState } from 'react'
 import getWeather from '../services/getWeather'
 
-export default function useWeather (cityName) {
+export function useWeather ({ cityName } = { cityName: null }) {
   const [weather, setWeather] = useState([])
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
+  const loadWeather = async (cityName) => {
     setLoading(true)
-    getWeather(cityName)
-      .then((data) => {
-        setWeather(data)
-        setLoading(false)
-      })
+    const data = await getWeather(cityName)
+    if (!data) return null
+    setWeather(data)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    loadWeather()
   }, [cityName])
 
   return {
     weather,
-    setWeather,
     loading,
-    setLoading
+    loadWeather
   }
 }

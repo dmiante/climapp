@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import styles from './SearchBar.module.css'
 
-export default function SearchBar ({ onNewCity }) {
+export default function SearchBar ({ onSubmit }) {
   const [inputValue, setInputValue] = useState('')
 
   function handleSubmit (e) {
     e.preventDefault()
-    onNewCity(inputValue)
+    onSubmit({ inputValue })
     // console.log(inputValue)
     setInputValue('')
   }
@@ -27,7 +27,6 @@ export default function SearchBar ({ onNewCity }) {
         autoComplete='off'
       />
       <label htmlFor='ct'><span>Search a city</span></label>
-      <input type='submit' value='Search' />
     </form>
   )
 }
