@@ -1,0 +1,48 @@
+
+.abox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+.imgcontainer {
+    width: 8rem;
+    height: 15.5rem;
+    overflow: hidden;
+}
+  
+.imgcontainer img {
+    width: 7rem;
+    height: auto;
+    position: relative;
+}
+  
+.innerskew {
+    display: inline-block;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    padding: 0;
+    margin: 4.4rem 0 0 0;
+}
+  
+.textcontainer {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 2rem;
+    border-radius: 1.2rem;
+    margin: -7.5rem 0 0 0;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+  
+.textcontainer h2 {
+    margin: 1.5rem 0 0 0;
+    font-size: 2rem;
+}
+.textcontainer p {
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+}

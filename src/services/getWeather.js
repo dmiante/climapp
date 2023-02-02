@@ -1,7 +1,8 @@
 /* eslint-disable camelcase */
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 
-const API_URL = 'https://weatherapi-com.p.rapidapi.com/forecast.json'
+const API_URL_FORECAST = 'https://weatherapi-com.p.rapidapi.com/forecast.json'
+// const API_URL_SEARCH = 'https://weatherapi-com.p.rapidapi.com/search.json'
 const API_HOST = 'weatherapi-com.p.rapidapi.com'
 
 const options = {
@@ -12,14 +13,19 @@ const options = {
   }
 }
 async function getWeather (cityName = 'Santiago') {
-  const url = `${API_URL}?q=${cityName}`
-  const defaultUrl = `${API_URL}?q=Santiago`
-  console.log(url)
+  const url = `${API_URL_FORECAST}?q=${cityName}`
+  const defaultUrl = `${API_URL_FORECAST}?q=Santiago`
+  // console.log(url)
 
   const response = await fetch(cityName === null ? defaultUrl : url, options)
   const data = await response.json()
 
-  const { location, current } = data
+  if (!response.ok) {
+    const error = new Error('An error occurred while fetching the data.')
+    throw error
+  }
+
+  const { location, current, forecast } = data
   const { name, region, country, localtime } = location
   const {
     temp_c,
@@ -34,12 +40,16 @@ async function getWeather (cityName = 'Santiago') {
   } = current
   const { text, code } = condition
 
-  // const { forecastday } = forecast
-  // const [
-  //   { date: date1, day: { maxtemp_c: maxtemp1, mintemp_c: mintemp1 } },
-  //   { date: date2, day: { maxtemp_c: maxtemp2, mintemp_c: mintemp2 } },
-  //   { date: date3, day: { maxtemp_c: maxtemp3, mintemp_c: mintemp3 } }
-  // ] = forecastday
+  const { forecastday } = forecast
+  const [
+    {
+      day: { maxtemp_c: maxtemp, mintemp_c: mintemp },
+      hour
+    }
+  ] = forecastday
+  // console.log({ dateNow, day: { maxtemp, mintemp } })
+  // console.log(forecastday[0].hour.map(el => { return el.time }))
+  // console.log(forecastday)
 
   return {
     name,
@@ -55,7 +65,10 @@ async function getWeather (cityName = 'Santiago') {
     precipMM: precip_mm,
     conditionText: text,
     uv,
-    code
+    code,
+    maxtemp,
+    mintemp,
+    hour
   }
 }
 export default getWeather
