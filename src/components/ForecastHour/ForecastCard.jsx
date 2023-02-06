@@ -17,9 +17,7 @@ function ForecastCard ({ condition, tempHour, time, isDay }) {
   return (
     <div className={styles.abox}>
       <div className={styles.imgcontainer}>
-        <div className={styles.innerskew}>
-          <img src={image} alt={condition.text} />
-        </div>
+        <img src={image} alt={condition.text} />
       </div>
       <div className={styles.textcontainer}>
         <h2>{`${tempHour}°C`}</h2>

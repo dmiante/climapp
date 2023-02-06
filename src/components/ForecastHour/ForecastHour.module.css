@@ -1,6 +1,7 @@
 .fhourly {
   display: flex;
-  padding: 1rem 0rem;
+  padding-bottom: 1rem;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  margin: 0 3rem 3rem;
 }
