@@ -43,7 +43,7 @@ async function getWeather (cityName = 'Santiago') {
   const { forecastday } = forecast
   const [
     {
-      day: { maxtemp_c: maxtemp, mintemp_c: mintemp },
+      day: { maxtemp_c: maxTemp, mintemp_c: minTemp },
       hour
     }
   ] = forecastday
@@ -66,8 +66,8 @@ async function getWeather (cityName = 'Santiago') {
     conditionText: text,
     uv,
     code,
-    maxtemp,
-    mintemp,
+    maxTemp,
+    minTemp,
     hour
   }
 }

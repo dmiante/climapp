@@ -2,6 +2,7 @@ import SearchBar from './SearchBar/SearchBar'
 import CurrentDay from './Current/CurrentDay'
 import Loading from './Loading/Loading'
 import ForecastHour from './ForecastHour/ForecastHour'
+import Logo from '../assets/logo-no-background.svg'
 
 import { useWeather } from '../hooks/useWeather'
 import useImage from '../hooks/useImage'
@@ -38,7 +39,9 @@ export default function Home () {
     <>
       <div className={styles.App}>
         <header>
-          <h1 className={styles.title}>ClimApp</h1>
+          <a href='/'>
+            <img src={Logo} className={styles.title} />
+          </a>
           <SearchBar onSubmit={SearchNewCity} />
         </header>
         {
@@ -52,7 +55,7 @@ export default function Home () {
                 )
               }
         <footer className={styles.footer}>
-          <p>Made by dmi4n</p>
+          <a href='https://github.com/dmi4n/climapp'>Built with ❤️ by Dmi4n🦁</a>
         </footer>
       </div>
     </>

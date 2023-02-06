@@ -2,7 +2,7 @@ form {
   margin: 3rem 0 0 3rem;
 }
 
-input,
+/* input,
 span,
 label {
   font-family: 'PT Sans', sans-serif;
@@ -11,7 +11,7 @@ label {
   padding: 5px;
   border: none;
   font-size: 22px;
-}
+} */
 
 input:focus {
   outline: 0;
@@ -19,7 +19,7 @@ input:focus {
 
 .inputCity {
     color: white;
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 300;
     border-radius: 2px;
     margin: 0;
@@ -72,4 +72,29 @@ input:focus {
   cursor: text;
   -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+@media (max-width: 600px) {
+  form {
+    margin: 3rem;
+  }
+  .inputCity {
+    font-size: 1.7rem;
+    margin: 0;
+  }
+  .inputCity + label {
+    width: 100%;
+  }
+  .inputCity:focus + label {
+    width: 100%;
+  }
+  .inputCity:focus + label > span,
+  .inputCity:valid + label > span {
+    top: -70px;
+    font-size: 22px;
+    color: white;
+}
+  .inputCity + label > span {
+    font-size: 1.5rem;
+    top: -33px;
+    }
 }
