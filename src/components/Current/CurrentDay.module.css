@@ -6,7 +6,7 @@ h2, h3, h4 {
 .currentDay {
     display: flex;
     justify-content: space-between;
-    margin: 6rem 3rem 3rem;
+    margin: 6rem 3rem 0;
     opacity: 1;
     animation: fadeInOpacity 2s ease-in 1;
     -webkit-animation: fadeInOpacity 2s ease-in 1;

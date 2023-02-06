@@ -11,7 +11,7 @@ import { WEATHER_CODES } from './Const'
 export default function Home () {
   const { weather, loading, loadWeather } = useWeather()
   const { hour } = weather
-  console.log(weather)
+  // console.log(weather)
   const fileName = WEATHER_CODES[weather?.code]?.[
     ((
       weather?.code === 1000 ||
@@ -30,31 +30,31 @@ export default function Home () {
   const { bgImage } = useImage(fileName)
   // console.log(bgImage)
 
-  const backgroundStyle = {
-    backgroundImage: `url(${bgImage})`
+  if (!loading) {
+    document.body.style.backgroundImage = `url(${bgImage})`
   }
 
   return (
-    <div className={styles.App} style={backgroundStyle}>
-      <div className={styles.overlay}>
+    <>
+      <div className={styles.App}>
         <header>
           <h1 className={styles.title}>ClimApp</h1>
           <SearchBar onSubmit={SearchNewCity} />
         </header>
         {
-          weather && loading
-            ? <Loading />
-            : (
-              <div className={styles.container}>
-                <CurrentDay weather={weather} />
-                <ForecastHour hoursForecast={hour} />
-              </div>
-              )
-        }
+            weather && loading
+              ? <Loading />
+              : (
+                <div className={styles.container}>
+                  <CurrentDay weather={weather} />
+                  <ForecastHour hoursForecast={hour} />
+                </div>
+                )
+              }
         <footer className={styles.footer}>
           <p>Made by dmi4n</p>
         </footer>
       </div>
-    </div>
+    </>
   )
 }

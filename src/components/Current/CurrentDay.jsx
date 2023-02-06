@@ -46,7 +46,7 @@ export default function CurrentDay ({ weather }) {
         <div>
           <img src={Thermometer} alt='location' className={styles.iconDetail} />
           <h4>Feels Like</h4>
-          <h2>{`${weather?.feelsLike}°`}</h2>
+          <h2>{`${weather?.feelsLike}°C`}</h2>
         </div>
         <div>
           <img src={Humidity} alt='location' className={styles.iconDetail} />
