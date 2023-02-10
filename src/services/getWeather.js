@@ -2,7 +2,7 @@
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 
 const API_URL_FORECAST = 'https://weatherapi-com.p.rapidapi.com/forecast.json'
-// const API_URL_SEARCH = 'https://weatherapi-com.p.rapidapi.com/search.json'
+const API_URL_SEARCH = 'https://weatherapi-com.p.rapidapi.com/search.json'
 const API_HOST = 'weatherapi-com.p.rapidapi.com'
 
 const options = {
@@ -12,7 +12,7 @@ const options = {
     'X-RapidAPI-Host': `${API_HOST}`
   }
 }
-async function getWeather (cityName = 'Santiago') {
+export async function getWeather (cityName = 'Santiago') {
   const url = `${API_URL_FORECAST}?q=${cityName}`
   const defaultUrl = `${API_URL_FORECAST}?q=Santiago`
   // console.log(url)
@@ -71,4 +71,16 @@ async function getWeather (cityName = 'Santiago') {
     hour
   }
 }
-export default getWeather
+
+export async function getSearch (cityName) {
+  const url = `${API_URL_SEARCH}?q=${cityName}`
+  const response = await fetch(url, options)
+  const data = await response.json()
+  // console.log(data)
+
+  if (!response.ok) {
+    const error = new Error('An error occurred while fetching the data.')
+    throw error
+  }
+  return { data }
+}

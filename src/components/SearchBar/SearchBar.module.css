@@ -1,17 +1,7 @@
 form {
   margin: 3rem 0 0 3rem;
+  position: relative;
 }
-
-/* input,
-span,
-label {
-  font-family: 'PT Sans', sans-serif;
-  display: block;
-  margin: 10px;
-  padding: 5px;
-  border: none;
-  font-size: 22px;
-} */
 
 input:focus {
   outline: 0;
@@ -48,11 +38,6 @@ input:focus {
   width: 70%;
 }
 
-/* .inputCity:focus,
-.inputCity:valid {
-  padding-top: 35px;
-} */
-
 .inputCity:focus + label > span,
 .inputCity:valid + label > span {
   top: -100px;
@@ -73,6 +58,48 @@ input:focus {
   -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
+
+.inputCity.active input{
+  border-radius: 5px 5px 0 0;
+}
+
+.resultBox {
+  
+}
+.resultBox ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  width: 70%;
+  position: absolute;
+  z-index: 1;
+  border-radius: 2rem;
+  max-height: 10rem;
+  /* overflow-y: scroll; */
+}
+
+.autocomplete:hover {
+  background: #efefef;
+}
+.autocomplete {
+  list-style: none;
+  background-color: white;
+  color:  black;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 600px) {
   form {
     margin: 3rem;
