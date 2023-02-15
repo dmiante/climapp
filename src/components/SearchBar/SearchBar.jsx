@@ -3,14 +3,36 @@ import { getSearch } from '../../services/getWeather'
 import styles from './SearchBar.module.css'
 import debounce from 'just-debounce-it'
 
-// import { useWeather } from '../../hooks/useWeather'
-
 export default function SearchBar ({ onSubmit }) {
   const [options, setOptions] = useState([])
   const [display, setDisplay] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [error, setError] = useState(null)
   const isFirstInput = useRef(true)
+
+  useEffect(() => {
+    if (isFirstInput.current) {
+      isFirstInput.current = inputValue === ''
+      return
+    }
+
+    if (inputValue === '') {
+      setError('Cannot leave this field empty')
+      return
+    }
+
+    if (inputValue.match(/^\d+$/)) {
+      setError('Can\'t search for a city with numbers')
+      return
+    }
+
+    if (inputValue.length < 3) {
+      setError('Search must have at least 3 characters')
+      return
+    }
+
+    setError(null)
+  }, [inputValue])
 
   const listSuggestion = async (cityName) => {
     const data = await getSearch(cityName)
@@ -25,50 +47,30 @@ export default function SearchBar ({ onSubmit }) {
     , []
   )
 
-  function handleSubmit (e) {
-    e.preventDefault()
-    onSubmit({ inputValue })
-    // setInputValue('')
-  }
-
-  function handleChange (e) {
-    const value = e.target.value
+  function handleChange (event) {
+    const value = event.target.value
+    if (value.startsWith(' ') || value.match(/^\d+$/)) return
     setInputValue(value)
-    if (value.length > 3) {
-      debouncedGetSuggestion(value)
-      setOptions([])
+    if (inputValue.length > 3) {
+      debouncedGetSuggestion(inputValue) // Se ejecuta cuando escribo 3 o mas palabras
       setDisplay(true)
     } else {
+      setOptions([])
       setDisplay(false)
     }
   }
 
-  function handleClick (e) {
-    const text = e.target.innerText
-    // console.log(text)
+  function handleClick (cities) {
+    const city = cities.name
+    // console.log(city)
+    setInputValue(city)
+    onSubmit(city)
     setOptions([])
-    setInputValue(text) // solo para dejar lo seleccionado en el input
     setDisplay(false)
   }
 
-  useEffect(() => {
-    console.log(inputValue)
-
-    if (isFirstInput.current) {
-      isFirstInput.current = inputValue === ''
-      return
-    }
-
-    if (inputValue === '') {
-      setError('No se puede dejar este campo vacio')
-      return
-    }
-
-    setError(null)
-  }, [inputValue])
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <input
         id='ct'
         type='text'
@@ -90,7 +92,7 @@ export default function SearchBar ({ onSubmit }) {
                     <li
                       key={option.id}
                       className={styles.autocomplete}
-                      onClick={handleClick}
+                      onClick={() => handleClick(option)}
                     >
                       {option.name}
                     </li>
