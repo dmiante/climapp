@@ -24,7 +24,7 @@ export default function Home () {
       : 0
   ]
 
-  function SearchNewCity ({ inputValue }) {
+  function SearchNewCity (inputValue) {
     loadWeather(inputValue)
   }
 
