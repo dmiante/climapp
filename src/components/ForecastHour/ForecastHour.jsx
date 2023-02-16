@@ -1,10 +1,13 @@
+import { useWeather } from '../../hooks/useWeather'
 import ForecastCard from './ForecastCard'
 import styles from './ForecastHour.module.css'
 
-function ForecastHour ({ hoursForecast }) {
+function ForecastHour () {
+  const { weather } = useWeather()
+  const { hour } = weather
   return (
     <div className={styles.fhourly}>
-      {hoursForecast?.map((hourly) => {
+      {hour?.map((hourly) => {
         return (
           <ForecastCard
             key={hourly.time_epoch}

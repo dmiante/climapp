@@ -11,7 +11,6 @@ import { WEATHER_CODES } from './Const'
 
 export default function Home () {
   const { weather, loading, loadWeather } = useWeather()
-  const { hour } = weather
   // console.log(weather)
   const fileName = WEATHER_CODES[weather?.code]?.[
     ((
@@ -40,7 +39,7 @@ export default function Home () {
       <div className={styles.App}>
         <header>
           <a href='/'>
-            <img src={Logo} className={styles.title} />
+            <img src={Logo} className={styles.title} alt='Climapp' />
           </a>
           <SearchBar onSubmit={SearchNewCity} />
         </header>
@@ -50,7 +49,7 @@ export default function Home () {
               : (
                 <div className={styles.container}>
                   <CurrentDay weather={weather} />
-                  <ForecastHour hoursForecast={hour} />
+                  <ForecastHour />
                 </div>
                 )
               }
