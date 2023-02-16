@@ -1,26 +1,22 @@
 import { useState } from 'react'
 import { getSearch } from '../services/getWeather'
 
-export function useSearch ({ cityName }) {
+export function useSearch () {
   const [options, setOptions] = useState([])
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
 
-  const listSuggestion = async () => {
-    setLoading(true)
-    const suggestions = await getSearch({ cityName })
-    if (!suggestions) return null
-    console.log(suggestions)
-    setOptions(suggestions.data)
-    setLoading(false)
+  const listSuggestion = async (cityName) => {
+    // setLoading(true)
+    const suggestion = await getSearch(cityName)
+    if (!suggestion) return null
+    const { data } = suggestion
+    const dataLimit = data.slice(0, 5) // show only 5 results
+    setOptions(dataLimit)
+    // setLoading(false)
   }
-
-  // useEffect(() => {
-  //   loadSearch()
-  // }, [suggestion])
 
   return {
     options,
-    loading,
     listSuggestion
   }
 }

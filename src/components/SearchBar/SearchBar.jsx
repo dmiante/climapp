@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { getSearch } from '../../services/getWeather'
 import styles from './SearchBar.module.css'
 import debounce from 'just-debounce-it'
+import { useSearch } from '../../hooks/useSearch'
 
 export default function SearchBar ({ onSubmit }) {
-  const [options, setOptions] = useState([])
   const [display, setDisplay] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [error, setError] = useState(null)
   const isFirstInput = useRef(true)
+  const { options, listSuggestion } = useSearch()
 
   useEffect(() => {
     if (isFirstInput.current) {
@@ -34,12 +34,6 @@ export default function SearchBar ({ onSubmit }) {
     setError(null)
   }, [inputValue])
 
-  const listSuggestion = async (cityName) => {
-    const data = await getSearch(cityName)
-    if (!data) return null
-    setOptions(data.data)
-  }
-
   const debouncedGetSuggestion = useCallback(
     debounce(inputValue => {
       listSuggestion(inputValue)
@@ -55,22 +49,20 @@ export default function SearchBar ({ onSubmit }) {
       debouncedGetSuggestion(inputValue) // Se ejecuta cuando escribo 3 o mas palabras
       setDisplay(true)
     } else {
-      setOptions([])
       setDisplay(false)
     }
   }
 
   function handleClick (cities) {
     const city = cities.name
-    // console.log(city)
+    const cityToString = `${cities.lat},${cities.lon}`
     setInputValue(city)
-    onSubmit(city)
-    setOptions([])
+    onSubmit(cityToString)
     setDisplay(false)
   }
 
   return (
-    <form>
+    <form onSubmit={event => event.preventDefault()}>
       <input
         id='ct'
         type='text'
@@ -94,7 +86,7 @@ export default function SearchBar ({ onSubmit }) {
                       className={styles.autocomplete}
                       onClick={() => handleClick(option)}
                     >
-                      {option.name}
+                      {`${option.name}, ${option.region}, ${option.country}`}
                     </li>
                   )
                 })}
