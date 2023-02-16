@@ -37,25 +37,25 @@ export default function CurrentDay ({ weather }) {
         </div>
         <h3 className={styles.localtime}>{`${time} - ${date}`}</h3>
         <div className={styles.mainInfoTemp}>
-          <img className={styles.icon} src={image} />
+          <img className={styles.icon} src={image} alt={weather.conditionText} />
           <h2 className={styles.temperature}>{`${weather?.tempNow}°C`}</h2>
           <h2 className={styles.condition}>{weather?.conditionText}</h2>
         </div>
       </section>
       <section className={styles.detailDay}>
         <div>
-          <img src={Thermometer} alt='location' className={styles.iconDetail} />
-          <h4>Max / Min Temperature</h4>
+          <img src={Thermometer} alt='max/min temp' className={styles.iconDetail} />
+          <span>Max / Min Temperature</span>
           <h2>{`${weather?.maxTemp} / ${weather?.minTemp} °C`}</h2>
         </div>
         <div>
-          <img src={Humidity} alt='location' className={styles.iconDetail} />
-          <h4>Humidity</h4>
+          <img src={Humidity} alt='humidity' className={styles.iconDetail} />
+          <span>Humidity</span>
           <h2>{`${weather?.humidity} %`}</h2>
         </div>
         <div>
-          <img src={Wind} alt='location' className={styles.iconDetail} />
-          <h4>Wind Speed & Direction</h4>
+          <img src={Wind} alt='wind speed' className={styles.iconDetail} />
+          <span>Wind Speed & Direction</span>
           <h2>{`${weather?.windKph} km/h - ${weather?.windDir}`}</h2>
         </div>
       </section>

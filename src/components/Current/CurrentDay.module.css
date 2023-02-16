@@ -19,8 +19,8 @@ h2, h3, h4 {
     font-size: 1.5em;
 }
 .iconLocation {
-    width: 1em;
-    height: 1em;
+    width: 2rem;
+    height: auto;
 }
 .city {
     font-weight: 400;
@@ -54,6 +54,10 @@ h2, h3, h4 {
     padding-left: 0.2em;
 }
 
+.iconDetail {
+    width: 1rem;
+    height: auto;
+}
 .detailDay div {
     display: grid;
     grid-template-columns: 0.4fr 1fr;
@@ -70,7 +74,7 @@ h2, h3, h4 {
     width: 3em;
     height: auto;
 }
-.detailDay > div > h4 {
+.detailDay > div > span {
     display: flex;
     grid-area: 1 / 2 / 2 / 3;
     align-items: end;
