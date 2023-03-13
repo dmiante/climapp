@@ -54,7 +54,7 @@ export default function Home () {
                 )
               }
         <footer className={styles.footer}>
-          <a href='https://github.com/dmi4n/climapp'>Built with ❤️ by Dmi4n🦁</a>
+          <a href='https://github.com/dmiante/climapp'>Built with ❤️ by Dmiante🦁</a>
         </footer>
       </div>
     </>
